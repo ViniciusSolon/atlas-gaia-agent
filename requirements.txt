@@ -1,0 +1,10 @@
+smolagents>=1.20
+openai
+ddgs
+wikipedia-api
+markdownify
+pandas
+openpyxl
+huggingface_hub
+requests
+jupyter
