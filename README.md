@@ -1,45 +1,45 @@
-# Atlas - agente para o benchmark GAIA
+# Atlas - an agent for the GAIA benchmark
 
-Projeto final do [AI Agents Course](https://huggingface.co/learn/agents-course) da Hugging Face.
+Final project for the Hugging Face [AI Agents Course](https://huggingface.co/learn/agents-course).
 
-Criei um agente que responde perguntas do [GAIA](https://huggingface.co/papers/2311.12983), um benchmark com perguntas que são fáceis para pessoas, mas difíceis para modelos de IA sozinhos. Para responder, o agente precisa pesquisar na internet, ler arquivos (planilhas, áudios, imagens) e fazer alguns passos de raciocínio.
+I built an agent that answers questions from [GAIA](https://huggingface.co/papers/2311.12983), a benchmark with questions that are easy for people but hard for AI models on their own. To answer them, the agent has to search the web, read files (spreadsheets, audio, images) and go through a few steps of reasoning.
 
-## Como funciona
+## How it works
 
-O agente repete um ciclo até achar a resposta:
+The agent repeats a loop until it finds the answer:
 
-1. **Pensa** no próximo passo
-2. **Age**: escreve um código Python que usa uma ferramenta
-3. **Observa** o resultado
+1. **Think** about the next step
+2. **Act**: write Python code that uses a tool
+3. **Observe** the result
 
-Ferramentas que ele usa:
+Tools it uses:
 
-- busca na web (DuckDuckGo)
-- abrir páginas da internet
-- busca na Wikipedia
-- transcrição de áudio (Whisper)
-- análise de imagens (GPT-4o)
-- Python, para contas e planilhas
+- web search (DuckDuckGo)
+- opening web pages
+- Wikipedia search
+- audio transcription (Whisper)
+- image analysis (GPT-4o)
+- Python, for math and spreadsheets
 
-## Tecnologias
+## Tech stack
 
 - Python
 - [smolagents](https://github.com/huggingface/smolagents)
-- OpenAI (GPT-4o e Whisper)
+- OpenAI (GPT-4o and Whisper)
 - pandas
 
-## Problemas que resolvi
+## Problems I solved
 
-- A Wikipedia bloqueava o agente, então criei minha própria ferramenta para abrir páginas.
-- A API do curso não entregava alguns arquivos, então adicionei um download alternativo pelo dataset do GAIA.
-- O agente inventava respostas quando faltava informação, então ajustei o prompt.
-- A resposta precisa ser exatamente igual ao gabarito, então criei uma função para limpar o formato.
+- Wikipedia was blocking the agent, so I wrote my own tool to open pages.
+- The course API didn't deliver some files, so I added a fallback download from the GAIA dataset.
+- The agent made up answers when information was missing, so I adjusted the prompt.
+- The answer has to match the expected answer exactly, so I wrote a function to clean up the format.
 
-## Como rodar
+## How to run
 
 ```bash
 pip install -r requirements.txt
 jupyter notebook atlas_gaia_agent.ipynb
 ```
 
-Você vai precisar de uma chave da OpenAI (`OPENAI_API_KEY`). O `HF_TOKEN` é opcional.
+You need an OpenAI key (`OPENAI_API_KEY`). The `HF_TOKEN` is optional.
